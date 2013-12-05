@@ -1,0 +1,70 @@
+/**
+ * .wednesday-ui--widget-dropdown
+ * @param background-color
+ * @param padding
+ * @param font-size
+ */
+.wednesday-ui-widget-dropdown()
+{
+
+	background-color: @wednesday-ui-primary;
+
+	&.open 
+	{
+
+		ul 
+		{
+
+			display:block;
+
+		}
+
+	}
+
+	a
+	{
+
+		float:left;
+		box-sizing:border-box;
+		.wednesday-ui-function-normalize-anchor();
+		padding:20px;	
+		color:@wednesday-ui-secondary;
+		width:100%;
+		font-size: 16px;
+		text-transform: uppercase;
+		
+
+		&:active
+		{
+			box-shadow: none;
+		}
+
+	}
+
+	ul 
+	{
+
+		float:left;
+		.wednesday-ui-function-normalize-ul();
+		width:100%;
+		display:none;
+
+		li 
+		{
+			float:left;
+			.wednesday-ui-function-normalize-list();
+			width:100%;
+			box-sizing:border-box;
+
+			a 
+			{
+
+				.wednesday-ui-function-normalize-anchor();
+				text-transform: uppercase;
+
+			}
+
+		}
+
+	}
+}
