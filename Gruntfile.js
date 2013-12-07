@@ -11,7 +11,7 @@ module.exports = function( grunt )
 		'js/widgets/theatre.js'
 	];
 
-	var DOC_DIR = 'Documentation';
+	var DOC_DIR = 'documentation';
 
 	/**
 	 * Tasks Config
@@ -51,6 +51,21 @@ module.exports = function( grunt )
 					}
 				}
 			},
+
+
+			recess: {
+			  dist: 
+			  {
+			    options: 
+			    {
+			      compile: true
+			    },
+			    files: 
+			    {
+			      'css/wednesday-ui.css': [ 'less/wednesday-ui.less' ]
+			    }
+			  }
+			},
     
 
 			watch: 
@@ -84,7 +99,7 @@ module.exports = function( grunt )
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-jsdoc' );
-
+	grunt.loadNpmTasks( 'grunt-recess' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
 
@@ -92,7 +107,8 @@ module.exports = function( grunt )
    * Register Tasks
    */
 	grunt.registerTask( 'javascript', [ 'clean', 'jshint', 'jsdoc' ] );
-	grunt.registerTask( 'default', [ 'javascript', 'watch' ] );
+	grunt.registerTask( 'css', [ 'recess' ] );
+	grunt.registerTask( 'default', [ 'javascript', 'css', 'watch' ] );
 
 
 };
