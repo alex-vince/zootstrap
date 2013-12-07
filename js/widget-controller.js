@@ -1,13 +1,14 @@
-( function( $, window, document, undefined ) 
+( function( $, window, undefined )
 {
 
 	'use strict';
 
-	//Localise Globals
-	var console 			= window.console || undefined;
 
-	var Wednesday 		= window.Wednesday = window.Wednesday || {};
-			Wednesday.Ui 	= Wednesday.Ui || {};
+	var Wednesday = window.Wednesday = window.Wednesday || {};
+	Wednesday.Ui = Wednesday.Ui || {};
+
+	//Localise Globals
+	var console = window.console || undefined;
 
 
 	Wednesday.Ui.WidgetController = function()
@@ -15,23 +16,23 @@
 
 		var that = this;
 
-		this.$widgets 	= $( '[data-wednesday-ui-widget]' );
-		this.widgets 		= [];
+		this.$widgets = $( '[data-wednesday-ui-widget]' );
+		this.widgets = [];
 
-		this.$widgets.each( function() 
+		this.$widgets.each( function()
 		{
 
-			try 
+			try
 			{
 
-				var $container = $( this )
-					, type = $container.attr( 'data-wednesday-ui-widget' )
-				  , config = { 
+				var $container = $( this ),
+				type = $container.attr( 'data-wednesday-ui-widget' ),
+				config = {
 
-							modalName : $container.attr( 'data-modal-name' ),
-							modalTheatreName : $container.attr( 'data-theatre-name' )
+					modalName : $container.attr( 'data-modal-name' ),
+					modalTheatreName : $container.attr( 'data-theatre-name' )
 
-						}
+				};
 
 				that.init( $container, type, config );
 
@@ -45,7 +46,7 @@
 
 		} );
 
-	}
+	};
 
 
 	Wednesday.Ui.WidgetController.prototype.init = function( $container, type, config )
@@ -64,19 +65,19 @@
 
 		}
 
-	}
+	};
 
 
 	/**
 	 * Init
 	 * @return { Object } constructed instance of Widget Controller
 	 */
-	$( document ).ready( function() 
+	$( window ).ready( function()
 	{
 
-		var instance = new Wednesday.Ui.WidgetController();
+		new Wednesday.Ui.WidgetController();
 
 	} );
 
 
-} )( jQuery , window, document, undefined );
+} )( this.jQuery , this, undefined );
