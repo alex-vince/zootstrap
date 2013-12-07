@@ -6,7 +6,9 @@ module.exports = function( grunt )
 	var FILE_ARR = 
 	[
 		'js/widget-controller.js',
-		'js/widgets/dropdown.js'
+		'js/widgets/dropdown.js',
+		'js/widgets/modal.js',
+		'js/widgets/theatre.js'
 	];
 
 	var DOC_DIR = 'Documentation';
