@@ -16,6 +16,7 @@
 		this.$body = $( 'body' );
 		this.$container = $container;
 		this.config = config;
+		this.init = init;
 		
 		this.modalName = config.modalName;
 		this.theatreName = config.modalTheatreName;
@@ -39,15 +40,18 @@
 
 		var that = this;
 
-
-		this.$container.on( 'click', function( e )
+		if ( !this.init )
 		{
 
-			e.preventDefault();
-			that.render();
+			this.$container.on( 'click', function( e )
+			{
 
-		} );
+				e.preventDefault();
+				that.render();
 
+			} );
+
+		}	
 
 		this.$body.on( 'click', '.close', function( e )
 		{
