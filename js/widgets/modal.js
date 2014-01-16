@@ -58,7 +58,7 @@
 
 			if ( $theatre )
 			{
-				that.deactivate();
+				this.$body.off( 'click', '.close' );
 				$theatre.remove();
 			}
 
