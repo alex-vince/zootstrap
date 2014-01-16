@@ -59,7 +59,6 @@
 			if ( $theatre )
 			{	
 				$theatre.remove();
-				this.$body.off( 'click', '.close' );
 			}
 
 		} );
