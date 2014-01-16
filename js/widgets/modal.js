@@ -10,7 +10,7 @@
 
 	
 
-	Wednesday.Ui.Widget.Modal = function( $container, config )
+	Wednesday.Ui.Widget.Modal = function( $container, config, init )
 	{
 
 		this.$body = $( 'body' );
@@ -21,10 +21,15 @@
 		this.theatreName = config.modalTheatreName;
 
 		this.$theatre = new Wednesday.Ui.Widget.Theatre( this.theatreName );
-
-		this.$content = this.$body.find( '#' + this.modalName );
+		this.template = ( init !== true ? this.modalName : config.template );
+		this.data = config.data;
 	
 		this.addListeners();
+
+		if ( init )
+		{
+			this.render();
+		}
 		
 	};
 
@@ -65,7 +70,7 @@
 	{
 
 		this.$container.off( 'click' );
-		this.$body.off( 'click', '.close');
+		this.$body.off( 'click', '.close' );
 
 	};
 
@@ -73,8 +78,8 @@
 	Wednesday.Ui.Widget.Modal.prototype.render = function()
 	{
 
-		var clone = this.$content.html(),
-		html = this.$theatre.html( clone );
+		var tmpl = Wednesday.Util.Template.fetch( this.template, this.data ),
+		html = this.$theatre.html( tmpl );
 		
 		this.$body.append( html );
 
