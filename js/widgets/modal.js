@@ -58,6 +58,7 @@
 
 			if ( $theatre )
 			{
+				that.deactivate();
 				$theatre.remove();
 			}
 
