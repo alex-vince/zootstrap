@@ -57,9 +57,9 @@
 			var $theatre = that.$body.find( '.' + that.theatreName );
 
 			if ( $theatre )
-			{
-				this.$body.off( 'click', '.close' );
+			{	
 				$theatre.remove();
+				this.$body.off( 'click', '.close' );
 			}
 
 		} );
